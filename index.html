@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Tuscanist</title>
+<meta name="description" content="The Tuscanist: day tours, family holidays, retreats and weddings in Tuscany, planned and hosted by a small team who live here.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: ink & linen. A hotel letterhead: light linen page, black header and headlines, terracotta and olive used only as accents. One calm column; Tom's circle portrait floats top right above the hills. */
+:root {
+  --linen: #f4efe7;      /* the page */
+  --paper: #fbf8f3;      /* raised surfaces */
+  --band: #ebe4d8;       /* alternate bands */
+  --ink: #121110;        /* headlines, header, buttons */
+  --text: #2b2724;       /* body copy */
+  --soft: #5f5750;       /* secondary text */
+  --terra: #b4552c;      /* terracotta accent */
+  --olive: #5c6d38;      /* olive accent */
+  --line: #d9cfc0;
+  --slot: #e6ddcf;
+  --sun: #e2a65a; --hill1: #c6c9a6; --hill2: #7f8b55; --cypress: #2e3520;
+  --display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --max: 70rem;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { background: var(--linen); color: var(--text); font-family: var(--body); font-size: 1.0625rem; line-height: 1.6; -webkit-font-smoothing: antialiased; margin: 0; }
+a { color: inherit; }
+.wrap { max-width: var(--max); margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; color: var(--ink); text-wrap: balance; margin: 0; }
+p { margin: 0; }
+.eyebrow { font-family: var(--mono); font-weight: 500; font-size: .74rem; letter-spacing: .16em; text-transform: uppercase; color: var(--olive); }
+.measure { max-width: 36rem; }
+.soft { color: var(--soft); }
+:focus-visible { outline: 2px solid var(--terra); outline-offset: 3px; }
+.leaf { display: inline-block; width: .5rem; height: .8rem; background: var(--olive); border-radius: 0 100% 0 100%; transform: rotate(20deg); margin-left: .3rem; vertical-align: .1rem; }
+
+/* header */
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--ink); color: var(--linen); }
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .9rem; }
+.mark { font-family: var(--display); font-weight: 700; font-size: 1.4rem; text-decoration: none; color: var(--linen); }
+.mark span { font-style: italic; color: #e08a5c; }
+header .leaf, footer .leaf { background: #a9b97f; }
+nav { display: flex; gap: 1.4rem; flex-wrap: wrap; }
+nav a { font-size: .92rem; font-weight: 500; text-decoration: none; color: #d9d1c4; }
+nav a:hover { color: #fff; }
+.btn { display: inline-block; font: 600 .95rem var(--body); background: var(--ink); color: var(--linen); border: 0; padding: .85rem 1.35rem; border-radius: 3px; text-decoration: none; cursor: pointer; }
+.btn:hover { background: #2c2925; }
+.btn.terra { background: var(--terra); color: #fff; }
+.btn.terra:hover { background: #9d4824; }
+.btn.ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+.btn.ghost:hover { background: var(--ink); color: var(--linen); }
+@media (max-width: 720px) { nav { display: none; } }
+
+/* whatsapp */
+.btn.wa { background: #1f7a4d; color: #fff; display: inline-flex; align-items: center; gap: .5rem; }
+.btn.wa:hover { background: #18633e; }
+.wa-ico { width: 1.15em; height: 1.15em; fill: currentColor; flex: none; }
+.wa-float { position: fixed; z-index: 20; right: calc(1.2rem + env(safe-area-inset-right, 0px)); bottom: calc(1.2rem + env(safe-area-inset-bottom, 0px)); width: 3.6rem; height: 3.6rem; border-radius: 50%; background: #1f7a4d; color: #fff; display: grid; place-items: center; box-shadow: 0 12px 30px -10px rgba(0,0,0,.45); text-decoration: none; }
+.wa-float .wa-ico { width: 1.8rem; height: 1.8rem; }
+.wa-float:hover { background: #18633e; }
+/* cta strip */
+.cta-strip { border-top: 1px solid var(--line); background: var(--paper); }
+.cta-strip .wrap { padding-block: 2.2rem; display: flex; justify-content: space-between; align-items: center; gap: 1.2rem; flex-wrap: wrap; }
+.cta-strip p { font-family: var(--display); font-weight: 700; font-size: clamp(1.3rem, 2.6vw, 1.7rem); color: var(--ink); }
+.cta-strip .ctas { gap: .6rem; }
+/* steps */
+.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.4rem; }
+.step { display: grid; gap: .6rem; align-content: start; border-top: 2px solid var(--ink); padding-top: 1.1rem; }
+.step .num { font-family: var(--display); font-style: italic; font-weight: 700; font-size: 2.4rem; line-height: 1; color: var(--terra); }
+.step h3 { font-size: 1.35rem; line-height: 1.2; }
+.step p { color: var(--soft); }
+@media (max-width: 900px) { .steps { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .steps { grid-template-columns: 1fr; } }
+/* service details */
+.way details { border: 0; padding: 0; }
+.way summary { font-family: var(--body); font-size: .9rem; font-weight: 600; color: var(--ink); justify-content: flex-start; gap: .4rem; }
+.way details p { margin-top: .5rem; font-size: .93rem; }
+.way:target { outline: 2px solid var(--terra); outline-offset: 4px; }
+.way { scroll-margin-top: 6rem; }
+.services-line a { text-decoration: none; display: block; }
+.services-line li:hover { background: var(--ink); color: var(--linen); border-color: var(--ink); }
+
+/* hero */
+.hero .wrap { position: relative; padding-block: 3.5rem 0; }
+.hero-text { display: grid; gap: 1.6rem; max-width: 40rem; position: relative; z-index: 2; }
+.hero .portrait { z-index: 2; }
+.hero h1 { font-size: clamp(2.9rem, 6.4vw, 5.2rem); line-height: 1.02; letter-spacing: -.01em; }
+.hero h1 em { color: var(--terra); }
+.hero .lead { font-size: 1.25rem; font-weight: 500; line-height: 1.5; color: var(--text); max-width: 33rem; }
+.services-line { display: flex; flex-wrap: wrap; gap: .4rem .5rem; padding: 0; margin: 0; list-style: none; }
+.services-line li { font-size: .85rem; font-weight: 500; color: var(--ink); background: var(--paper); border: 1px solid var(--line); padding: .3rem .65rem; border-radius: 999px; white-space: nowrap; }
+@media (min-width: 1001px) { .services-line { flex-wrap: nowrap; } }
+.ctas { display: flex; gap: .8rem; flex-wrap: wrap; }
+.portrait { position: absolute; right: max(16px, env(safe-area-inset-right, 0px)); top: 4rem; width: clamp(15rem, 25vw, 21rem); margin: 0; display: grid; justify-items: center; gap: .8rem; }
+.portrait img { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; object-position: 78% 42%; border-radius: 50%; border: 6px solid var(--paper); box-shadow: 0 28px 60px -28px rgba(18, 17, 16, .5); }
+.portrait figcaption { font-size: .9rem; font-weight: 500; color: var(--ink); display: inline-flex; align-items: center; gap: .35rem; background: var(--paper); border: 1px solid var(--line); padding: .35rem .8rem; border-radius: 999px; }
+.portrait figcaption .leaf { margin: 0; }
+@media (max-width: 1000px) {
+  .hero .wrap { padding-top: 2.5rem; }
+  .portrait { position: static; width: 9.5rem; margin: 0 0 1.4rem; justify-items: start; }
+  .portrait img { border-width: 4px; }
+  .portrait figcaption { font-size: .8rem; white-space: nowrap; }
+}
+.hero { display: flex; flex-direction: column; min-height: calc(100svh - 4.6rem); }
+.hero > .wrap { width: 100%; }
+.land { display: block; width: 100%; height: clamp(7rem, 15vw, 14rem); margin-top: auto; position: relative; z-index: 1; pointer-events: none; }
+.hero .ctas { align-items: flex-start; }
+.hero .wrap { padding-bottom: 0; }
+.hero .ctas { padding-bottom: 0; }
+.land .h1 { fill: var(--hill1); } .land .h2 { fill: var(--hill2); } .land .c { fill: var(--cypress); } .land .sun { fill: var(--sun); }
+
+section.band { border-top: 1px solid var(--line); }
+section.band > .wrap { padding-block: 5rem; }
+section.alt { background: var(--band); }
+.sec-head { display: grid; gap: .8rem; margin-bottom: 2.6rem; }
+.sec-head h2 { font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.08; }
+
+/* pitch */
+.pitch { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.2rem; }
+.pitch div { display: grid; gap: .5rem; align-content: start; }
+.pitch h3 { font-size: 1.4rem; line-height: 1.2; }
+@media (max-width: 760px) { .pitch { grid-template-columns: 1fr; } }
+
+/* photos */
+.ph { display: block; width: 100%; max-width: 100%; height: auto; object-fit: cover; background: var(--slot); }
+.gallery .ph { aspect-ratio: 4/5; height: 100%; }
+.gallery .ph.wide { aspect-ratio: auto; }
+.about .ph { aspect-ratio: 4/5; border-radius: 4px; }
+.team .ph { aspect-ratio: 1; border-radius: 50%; }
+
+/* photo slots */
+.slot { background: var(--slot); background-image: repeating-linear-gradient(135deg, transparent 0 14px, color-mix(in srgb, var(--line) 60%, transparent) 14px 15px); display: flex; align-items: flex-end; padding: .9rem 1rem; max-width: 100%; }
+.slot span { font-family: var(--mono); font-size: .7rem; letter-spacing: .06em; color: var(--soft); background: var(--paper); padding: .25rem .5rem; }
+.gallery { display: grid; grid-template-columns: 1fr 1fr 2fr; gap: .8rem; margin-top: 3rem; }
+.gallery .slot { aspect-ratio: 4/5; } .gallery .slot:first-child { aspect-ratio: auto; }
+@media (max-width: 760px) { .gallery { grid-template-columns: 1fr 1fr; } .gallery .slot:first-child, .gallery .ph.wide { grid-column: 1 / -1; aspect-ratio: 16/10; } }
+
+/* services */
+.ways { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.1rem; }
+.way { background: var(--paper); border: 1px solid var(--line); padding: 1.6rem; display: grid; gap: .8rem; grid-template-rows: auto auto 1fr auto auto; }
+.way h3 { font-size: 1.5rem; line-height: 1.15; }
+.way p { color: var(--soft); font-size: .97rem; }
+.way .from { font-family: var(--mono); font-weight: 500; font-size: .76rem; color: var(--terra); border-top: 1px solid var(--line); padding-top: .8rem; font-variant-numeric: tabular-nums; }
+.way.ask { background: var(--ink); border-color: var(--ink); }
+.way.ask h3 { color: var(--linen); }
+.way.ask p { color: #d9d1c4; }
+.way.ask .eyebrow { color: #a9b97f; }
+.way.ask a { color: #e08a5c; font-weight: 600; text-decoration: none; border-top: 1px solid #3a3530; padding-top: .8rem; }
+@media (max-width: 900px) { .ways { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .ways { grid-template-columns: 1fr; } }
+
+/* week */
+.week { display: grid; border-top: 1px solid var(--line); }
+.day { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 1.5rem; padding: 1.3rem 0; border-bottom: 1px solid var(--line); }
+.day .d { font-family: var(--display); font-style: italic; font-weight: 600; font-size: 1.35rem; color: var(--olive); }
+.day p { max-width: 40rem; }
+@media (max-width: 600px) { .day { grid-template-columns: 1fr; gap: .2rem; } }
+
+/* house way */
+.house { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 3rem; align-items: start; }
+.rules { display: grid; gap: 1.2rem; }
+.rule { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr); gap: 1rem; align-items: baseline; }
+.rule b { font-family: var(--display); font-weight: 700; font-size: 2.2rem; line-height: 1; color: var(--terra); }
+.quote { font-family: var(--display); font-weight: 600; font-size: clamp(1.5rem, 3vw, 2.1rem); line-height: 1.25; font-style: italic; color: var(--ink); }
+@media (max-width: 860px) { .house { grid-template-columns: 1fr; } }
+
+/* partners */
+.partners { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+.partner { border: 1px solid var(--line); background: var(--paper); padding: 1.3rem; display: grid; gap: .4rem; align-content: start; }
+.partner b { font-family: var(--display); font-weight: 700; font-size: 1.35rem; color: var(--ink); }
+.partner small { color: var(--soft); }
+.partner.empty { border-style: dashed; background: transparent; }
+@media (max-width: 860px) { .partners { grid-template-columns: 1fr 1fr; } }
+
+/* notes */
+.notes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; }
+.note { border-top: 2px solid var(--olive); padding-top: 1rem; display: grid; gap: .6rem; align-content: start; }
+.note .n { font-family: var(--mono); font-size: .72rem; color: var(--soft); letter-spacing: .1em; }
+.note h3 { font-size: 1.3rem; line-height: 1.25; }
+.note p { color: var(--soft); font-size: .97rem; }
+@media (max-width: 860px) { .notes { grid-template-columns: 1fr; } }
+
+/* about + team */
+.about { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 3rem; align-items: center; }
+.about .slot { aspect-ratio: 4/5; }
+.about .body { display: grid; gap: 1rem; }
+.sig { font-family: var(--display); font-style: italic; font-weight: 600; font-size: 1.6rem; color: var(--ink); }
+.team { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1rem; margin-top: 3rem; }
+.team div { display: grid; gap: .4rem; }
+.team .slot { aspect-ratio: 1; border-radius: 50%; justify-content: center; align-items: center; }
+.team b { font-weight: 600; color: var(--ink); } .team small { color: var(--soft); font-size: .85rem; }
+@media (max-width: 860px) { .about { grid-template-columns: 1fr; } .team { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+
+/* proof */
+.proof { background: var(--ink); }
+.proof .wrap { padding-block: 4.5rem; display: grid; gap: 1.2rem; }
+.proof .quote { color: var(--linen); max-width: 46rem; }
+.proof .eyebrow { color: #a9b97f; }
+.proof p.small { color: #cfc6b8; max-width: 40rem; }
+
+/* reviews */
+.rating { display: flex; align-items: baseline; gap: .8rem; flex-wrap: wrap; }
+.rating b { font-family: var(--display); font-size: 3rem; line-height: 1; color: var(--ink); }
+.reviews { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(16rem, 1fr); gap: 1rem; overflow-x: auto; padding-bottom: .6rem; scroll-snap-type: x mandatory; margin-top: 1.6rem; }
+.review { scroll-snap-align: start; background: var(--paper); border: 1px dashed var(--line); padding: 1.4rem; display: grid; gap: .8rem; align-content: start; }
+.review .stars { color: var(--terra); letter-spacing: .15em; }
+.review p { color: var(--soft); font-style: italic; }
+.review small { font-family: var(--mono); font-size: .7rem; color: var(--soft); }
+
+/* faq */
+details { border-bottom: 1px solid var(--line); padding: 1.1rem 0; }
+details:first-of-type { border-top: 1px solid var(--line); }
+summary { cursor: pointer; font-family: var(--display); font-weight: 600; font-size: 1.3rem; color: var(--ink); list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; font-family: var(--body); color: var(--terra); }
+details[open] summary::after { content: "–"; }
+details p { margin-top: .7rem; max-width: 42rem; color: var(--soft); }
+
+/* start */
+.start { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 2rem; }
+.call { background: var(--ink); padding: 1.8rem; display: grid; gap: .8rem; align-content: start; }
+.call h3 { color: var(--linen); font-size: 1.6rem; }
+.call p { color: #d9d1c4; }
+form { display: grid; gap: 1rem; background: var(--paper); border: 1px solid var(--line); padding: 1.8rem; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+label { display: grid; gap: .35rem; font-size: .85rem; color: var(--soft); }
+input, select, textarea { font: inherit; font-size: 1rem; color: var(--ink); background: var(--linen); border: 1px solid var(--line); border-radius: 3px; padding: .7rem .8rem; width: 100%; }
+textarea { min-height: 7rem; resize: vertical; }
+.thanks { font-family: var(--display); font-size: 1.3rem; color: var(--ink); }
+@media (max-width: 860px) { .start { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .two { grid-template-columns: 1fr; } }
+
+footer { background: var(--ink); color: #cfc6b8; border-top: 1px solid #2c2925; }
+footer .wrap { padding-block: 2.2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: .88rem; }
+footer .mark { font-size: 1.2rem; }
+/* phone polish */
+@media (max-width: 600px) {
+  header.top .wrap { padding-block: .7rem; }
+  .mark { font-size: 1.2rem; }
+  header .btn { padding: .6rem .9rem; font-size: .85rem; }
+  .hero .wrap { padding-top: 1.8rem; }
+  .hero .portrait { display: flex; align-items: center; gap: .8rem; width: auto; margin-bottom: 1.2rem; }
+  .hero .portrait img { width: 6rem; flex: none; }
+  .hero h1 { font-size: 2.6rem; }
+  .hero .lead { font-size: 1.1rem; }
+  .hero-text { gap: 1.2rem; }
+  .hero .ctas .btn { flex: 1 1 auto; text-align: center; justify-content: center; }
+  .hero { min-height: 0; }
+  .land { height: 7.5rem; margin-top: 1.6rem; }
+  section.band > .wrap { padding-block: 3.5rem; }
+  .sec-head { margin-bottom: 1.8rem; }
+  .cta-strip .ctas, .cta-strip .ctas .btn { width: 100%; }
+  .cta-strip .ctas .btn { flex: 1 1 auto; justify-content: center; text-align: center; }
+  .call .ctas .btn { flex: 1 1 auto; justify-content: center; }
+  .team { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem; }
+  .team small { font-size: .78rem; }
+  .wa-float { width: 3.2rem; height: 3.2rem; }
+  footer .wrap { flex-direction: column; align-items: flex-start; gap: .5rem; }
+}
+
+</style>
+</head>
+<body>
+
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top">The <span>Tuscanist</span><i class="leaf" aria-hidden="true"></i></a>
+    <nav aria-label="Main">
+      <a href="#services">What we do</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#start">Contact</a>
+    </nav>
+    <a class="btn terra" href="https://tidycal.com/villacasavecchia/tom" target="_blank" rel="noopener">Book a call</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <figure class="portrait">
+        <img src="tom.jpg" alt="Tom Scharre smiling outside a stone farmhouse at sunset, with a cypress tree behind him" width="1000" height="1500">
+        <figcaption><i class="leaf" aria-hidden="true"></i>Tom Scharre, founder</figcaption>
+      </figure>
+      <div class="hero-text">
+        <span class="eyebrow">The Tuscanist · with Tom Scharre</span>
+        <h1>Your trusted locals in <em>Tuscany.</em></h1>
+        <p class="lead">Day tours, family holidays, retreats and weddings, planned and hosted by a small team who live here.</p>
+        <ul class="services-line" aria-label="What we do">
+          <li><a href="#s-tours">Private day tours</a></li><li><a href="#s-travel">Family &amp; group travel</a></li><li><a href="#s-retreats">Retreats</a></li><li><a href="#s-weddings">Weddings &amp; events</a></li><li><a href="#s-concierge">Concierge</a></li>
+        </ul>
+        <div class="ctas">
+          <a class="btn" href="https://tidycal.com/villacasavecchia/tom" target="_blank" rel="noopener">Book a call</a>
+          <a class="btn wa" href="https://wa.me/393427786672" target="_blank" rel="noopener"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.5-.3Z"/></svg>WhatsApp us</a>
+        </div>
+      </div>
+    </div>
+    <svg class="land" viewBox="0 0 1440 220" preserveAspectRatio="none" aria-hidden="true">
+      <circle class="sun" cx="1010" cy="128" r="56"/>
+      <path class="h1" d="M0 120 C 220 60, 420 70, 620 110 S 1040 70, 1240 90 S 1400 110, 1440 100 V220 H0Z"/>
+      <path class="h2" d="M0 170 C 260 120, 520 150, 760 140 S 1180 120, 1440 150 V220 H0Z"/>
+      <g class="c">
+        <path d="M300 152 C 296 120, 300 90, 306 70 C 312 90, 316 120, 312 152Z"/>
+        <path d="M322 154 C 318 128, 322 104, 327 88 C 332 104, 336 128, 332 154Z"/>
+        <path d="M1088 136 C 1084 104, 1088 76, 1094 58 C 1100 76, 1104 104, 1100 136Z"/>
+        <path d="M1110 138 C 1106 112, 1110 92, 1115 78 C 1120 92, 1124 112, 1120 138Z"/>
+        <path d="M1131 140 C 1128 120, 1131 104, 1135 94 C 1139 104, 1142 120, 1139 140Z"/>
+      </g>
+    </svg>
+  </section>
+
+  <section class="band" aria-labelledby="what">
+    <div class="wrap">
+      <div class="pitch">
+        <div><span class="eyebrow">Who it's for</span><h3 id="what">Couples, families, friends and communities.</h3><p class="soft">Anyone who wants Tuscany done properly, without having to organise it themselves.</p></div>
+        <div><span class="eyebrow">What we do</span><h3>Drop your bags. We do the rest.</h3><p class="soft">We know the local spots, the right villas and the right people. Tell us how long you're staying and we'll build your week around you.</p></div>
+        <div><span class="eyebrow">How we work</span><h3>Honest, fair pricing.</h3><p class="soft">You know what you're paying before you come. If we find a better way to do something, the saving goes to you.</p></div>
+      </div>
+      <div class="gallery">
+        <img class="ph" src="img/table.jpg" alt="A long table set for dinner under a pergola at sunset, overlooking the hills" loading="lazy">
+        <img class="ph" src="img/dinner.jpg" alt="A long outdoor dinner table with glasses, flowers and lamps in a villa garden" loading="lazy">
+        <img class="ph wide" src="img/group.jpg" alt="A smiling group outside a Tuscan villa with the truffle hunters, holding the morning's truffles" loading="lazy">
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt" id="services" aria-labelledby="services-h">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">What we do</span><h2 id="services-h">Everything you need in Tuscany</h2><p class="soft measure">Pick one, or let us put several together.</p></div>
+      <div class="ways">
+        <article class="way" id="s-tours">
+          <span class="eyebrow">A day or two</span>
+          <h3>Private day tours</h3>
+          <p>Cultural trips, wine tastings, food experiences and guided days out across Tuscany, at your pace.</p>
+          <details><summary>More info</summary><p>Florence, Siena, San Gimignano, the Chianti hills or somewhere quieter. Driver, guide and bookings arranged; you just turn up.</p></details>
+          <p class="from">Priced per day</p>
+        </article>
+        <article class="way" id="s-travel">
+          <span class="eyebrow">Couples, families, friends</span>
+          <h3>Family &amp; group travel</h3>
+          <p>A personal itinerary with your villa, private transport and every booking made for you.</p>
+          <details><summary>More info</summary><p>We find the villa, plan each day, book the restaurants and experiences, and meet you on arrival. One price, agreed in writing.</p></details>
+          <p class="from">Weeks from €2,100 per person</p>
+        </article>
+        <article class="way" id="s-retreats">
+          <span class="eyebrow">Teachers &amp; communities</span>
+          <h3>Retreats</h3>
+          <p>Yoga, wellness and team retreats. You bring the programme; we plan and run everything around it, on site.</p>
+          <details><summary>More info</summary><p>Venue, rooms, transfers, activities and day-to-day logistics, with one of us on site all week so you can focus on your group.</p></details>
+          <p class="from">Weeks from €2,100 per person</p>
+        </article>
+        <article class="way" id="s-weddings">
+          <span class="eyebrow">20–50 guests</span>
+          <h3>Weddings &amp; events</h3>
+          <p>Small weddings and private celebrations: venue, suppliers, guests and the day itself, handled.</p>
+          <details><summary>More info</summary><p>Venue search, suppliers, guest travel and stays, and someone running the day so you can enjoy it.</p></details>
+          <p class="from">Priced on a call</p>
+        </article>
+        <article class="way" id="s-concierge">
+          <span class="eyebrow">During your stay</span>
+          <h3>Concierge</h3>
+          <p>Private chefs, restaurant tables, drivers and the experiences you can't book online.</p>
+          <details><summary>More info</summary><p>Already in Tuscany and need a hand? Message us and we'll sort the table, the driver or the day out.</p></details>
+          <p class="from">Ask us</p>
+        </article>
+        <article class="way ask">
+          <span class="eyebrow">Not sure?</span>
+          <h3>Tell us your plan</h3>
+          <p>Book a free 20-minute call or send us a WhatsApp, and we'll tell you honestly what we'd suggest.</p>
+          <a href="https://tidycal.com/villacasavecchia/tom" target="_blank" rel="noopener">Book a call →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-strip" aria-label="Book a call">
+    <div class="wrap">
+      <p>Not sure where to start? Talk to us.</p>
+      <div class="ctas"><a class="btn" href="https://tidycal.com/villacasavecchia/tom" target="_blank" rel="noopener">Book a call</a><a class="btn wa" href="https://wa.me/393427786672" target="_blank" rel="noopener"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.5-.3Z"/></svg>WhatsApp us</a></div>
+    </div>
+  </section>
+
+  <section class="band" id="how" aria-labelledby="how-h">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Working with us</span><h2 id="how-h">What it feels like to be our guest</h2><p class="soft measure">No hours of research, and no worrying about the wrong villa, the wrong restaurant or the wrong day trip. Everything is on us, from beginning to end.</p></div>
+      <div class="steps">
+        <div class="step"><span class="num">1</span><h3>Tell us what you want</h3><p>A short call or a WhatsApp. Who's coming, when, and what kind of trip you're dreaming of.</p></div>
+        <div class="step"><span class="num">2</span><h3>We plan everything</h3><p>Villa, transport, days out and tables, all chosen by people who live here. One plan, one price.</p></div>
+        <div class="step"><span class="num">3</span><h3>We pick you up</h3><p>From the airport, the train station, wherever you land. You meet us and drop your bags.</p></div>
+        <div class="step"><span class="num">4</span><h3>You enjoy Tuscany</h3><p>That's it. Everything is taken care of, and we're one message away all week.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt" id="partners" aria-labelledby="partners-h">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Who we work with</span><h2 id="partners-h">Places that trust us with their guests</h2></div>
+      <div class="partners">
+        <div class="partner"><span class="eyebrow">Partner villa</span><b>Casavecchia Villas</b><small>Tuscany · retreats and group weeks</small></div>
+        <div class="partner empty"><span class="eyebrow">Partner</span><b>Next villa</b><small>Placeholder</small></div>
+        <div class="partner empty"><span class="eyebrow">Partner</span><b>Florence stays</b><small>Placeholder</small></div>
+        <div class="partner empty"><span class="eyebrow">Partner</span><b>Yoga studio</b><small>Placeholder</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="notes" aria-labelledby="notes-h">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Local notes</span><h2 id="notes-h">Things we tell our friends</h2><p class="soft measure">Free advice from people who live here. A new note every week.</p></div>
+      <div class="notes">
+        <article class="note"><span class="n">Note No. 1</span><h3>Don't do Assisi, Siena and Lucca in one day</h3><p>You'll see three car parks. Pick one, have a long lunch and let the afternoon happen.</p></article>
+        <article class="note"><span class="n">Note No. 2</span><h3>Bring an International Driving Permit</h3><p>Renting a car from outside the EU? We've seen guests charged around €1,000 at the desk without one.</p></article>
+        <article class="note"><span class="n">Note No. 3</span><h3>Book trains directly</h3><p>Use Italo or Trenitalia's own sites, not a reseller. Same seats, fewer fees, easier changes.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div class="about">
+        <img class="ph" src="img/tom-about.jpg" alt="Tom Scharre in a narrow Florence street, smiling and pointing up at the buildings" loading="lazy">
+        <div class="body">
+          <span class="eyebrow">About</span>
+          <h2 id="about-h" style="font-size:clamp(2rem,4.5vw,3rem);line-height:1.08">Started by Tom. Run by a team you can rely on.</h2>
+          <p>Before Tuscany, Tom spent years living as a monk in a temple. Italy taught him something simpler: what's real is good food, a glass of wine, beautiful views and time with people you love.</p>
+          <p>He started by organising yoga retreats for people he knew. They brought their families, then their friends. Today The Tuscanist is a small team of hosts, guides and local makers, working with villas like Casavecchia.</p>
+          <p>You tell us what you're dreaming of. We take care of the rest, and you can sleep on both ears.</p>
+          <p class="sig">Tom &amp; the team</p>
+        </div>
+      </div>
+      <div class="team">
+        <div><img class="ph" src="img/tom-team.jpg" alt="Tom Scharre giving a thumbs up" loading="lazy"><b>Tom</b><small>Founder and host</small></div>
+        <div><img class="ph" src="img/isabella.jpg" alt="Isabella" loading="lazy"><b>Isabella</b><small>Creative director</small></div>
+        <div><img class="ph" src="img/thomas.jpg" alt="Thomas" loading="lazy"><b>Thomas</b><small>Marketing &amp; film</small></div>
+        <div><img class="ph" src="img/khalil.jpg" alt="Khalil, the chef" loading="lazy"><b>Khalil</b><small>Chef</small></div>
+        <div><img class="ph" src="img/lamu.jpg" alt="Lamu, a yellow Labrador, lying on a brick terrace" loading="lazy"><b>Lamu</b><small>Waste management</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="proof" aria-labelledby="proof-h">
+    <div class="wrap">
+      <span class="eyebrow">How we work</span>
+      <p id="proof-h" class="quote">A group had agreed to €2,500 each. When we found we could move them by coach instead of private vans, we lowered it to €2,250, a year after they'd said yes.</p>
+      <p class="small">That's the whole policy. You know what you're paying, and if it gets cheaper, it gets cheaper for you.</p>
+    </div>
+  </section>
+
+  <section class="band" id="reviews" aria-labelledby="reviews-h">
+    <div class="wrap">
+      <div class="sec-head" style="margin-bottom:0"><span class="eyebrow">From our guests</span><h2 id="reviews-h">In their words</h2>
+        <div class="rating"><b>14</b><span class="soft">reviews on Google, and counting</span></div>
+      </div>
+      <div class="reviews" aria-label="Review placeholders">
+        <div class="review"><span class="stars">★★★★★</span><p>Google review appears here.</p><small>Name · Google review</small></div>
+        <div class="review"><span class="stars">★★★★★</span><p>Google review appears here.</p><small>Name · Google review</small></div>
+        <div class="review"><span class="stars">★★★★★</span><p>Google review appears here.</p><small>Name · Google review</small></div>
+        <div class="review"><span class="stars">★★★★★</span><p>Google review appears here.</p><small>Name · Google review</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-strip" aria-label="Book a call">
+    <div class="wrap">
+      <p>Ready to plan your time in Tuscany?</p>
+      <div class="ctas"><a class="btn" href="https://tidycal.com/villacasavecchia/tom" target="_blank" rel="noopener">Book a call</a><a class="btn wa" href="https://wa.me/393427786672" target="_blank" rel="noopener"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.5-.3Z"/></svg>WhatsApp us</a></div>
+    </div>
+  </section>
+
+  <section class="band alt" id="questions" aria-labelledby="q-h">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Questions</span><h2 id="q-h">What people ask first</h2></div>
+      <details><summary>Are you real? How do I know this isn't a scam?</summary><p>Fair question. We live in Tuscany, the business is registered and licensed here, and you can read our Google reviews or speak to past guests before you pay. We always talk on a video call first, so you'll know our faces before you land.</p></details>
+      <details><summary>What's included in a week?</summary><p>Your villa, airport transfers, the activities in your plan and one of us on the ground all week. Flights aren't included. Everything is listed in writing before you pay.</p></details>
+      <details><summary>How does payment work for a group?</summary><p>Each person pays their own share directly, so nobody has to chase friends for money. A deposit holds your dates, and the rest is due before arrival.</p></details>
+      <details><summary>Is this a spiritual retreat?</summary><p>No. There's no programme you have to believe in. It's time to slow down, eat well and be with your people. Many guests say they go home lighter, but that's up to Tuscany, not us.</p></details>
+      <details><summary>Can you help with something small?</summary><p>Often, yes. A driver, a day out, a table for a birthday. Ask us and we'll tell you honestly if it's something we do well.</p></details>
+    </div>
+  </section>
+
+  <section class="band" id="start" aria-labelledby="start-h">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Contact</span><h2 id="start-h">Tell us what you're dreaming of</h2><p class="soft measure">Book a call, send a WhatsApp, or fill in the form. Whatever is easiest for you.</p></div>
+      <div class="start">
+        <div class="call">
+          <span class="eyebrow" style="color:#a9b97f">Fastest</span>
+          <h3>Book a free 20-minute call</h3>
+          <p>Pick a time that suits you. We'll talk through your dates, your group and what you'd love to do, with no obligation.</p>
+          <div class="ctas"><a class="btn terra" href="https://tidycal.com/villacasavecchia/tom" target="_blank" rel="noopener">Choose a time</a><a class="btn wa" href="https://wa.me/393427786672" target="_blank" rel="noopener"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.5-.3Z"/></svg>WhatsApp us</a></div>
+          <p style="font-size:.85rem;color:#a39a8c">Prefer to message? WhatsApp us on +39 342 778 6672.</p>
+        </div>
+        <form id="enquiry" novalidate>
+          <div class="two">
+            <label for="f-name">Your name<input id="f-name" name="name" autocomplete="name" placeholder="Linda Harper"></label>
+            <label for="f-email">Email<input id="f-email" name="email" type="email" autocomplete="email" placeholder="linda@example.com"></label>
+          </div>
+          <div class="two">
+            <label for="f-type">What are you planning?<select id="f-type" name="type"><option>Family or group trip</option><option>Retreat</option><option>Wedding or event</option><option>Day tour</option><option>Something else</option></select></label>
+            <label for="f-size">How many of you?<select id="f-size" name="size"><option>2–6</option><option>7–11</option><option>12–20</option><option>21–50</option></select></label>
+          </div>
+          <label for="f-dream">When, and what would make it perfect?<textarea id="f-dream" name="dream" placeholder="Late September, twelve of us turning 60. Good food, a bit of Florence, lots of time at the table."></textarea></label>
+          <button class="btn" type="submit">Send to The Tuscanist</button>
+          <p id="thanks" class="thanks" hidden>Thank you. We'll reply within two days.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="mark">The <span>Tuscanist</span><i class="leaf" aria-hidden="true"></i></span>
+    <span>With Tom Scharre · San Casciano in Val di Pesa, Tuscany</span>
+    <span>WhatsApp +39 342 778 6672 · Instagram · Google reviews</span>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/393427786672" target="_blank" rel="noopener" aria-label="Message The Tuscanist on WhatsApp"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.5-.3Z"/></svg></a>
+
+<script>
+document.getElementById('enquiry').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('thanks').hidden = false;
+});
+</script>
+
+</body>
+</html>
