@@ -172,7 +172,11 @@ section.alt { background: var(--band); }
 
 /* partners */
 .partners { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
-.partner { border: 1px solid var(--line); background: var(--paper); padding: 1.3rem; display: grid; gap: .4rem; align-content: start; }
+.partner { border: 1px solid var(--line); background: var(--paper); padding: 1.3rem; display: flex; flex-direction: column; align-items: center; gap: .45rem; text-align: center; min-height: 245px; text-decoration: none; color: inherit; border-radius: 12px; }
+.partner .client-mark { width: 112px; height: 112px; border-radius: 14px; display: grid; place-items: center; background: #eee9df; color: var(--ink); font-family: var(--display); font-size: 2rem; letter-spacing: -.04em; margin-bottom: .4rem; overflow: hidden; }
+.partner .client-mark img { width: 100%; height: 100%; object-fit: cover; }
+.partner .eyebrow { margin-top: auto; }
+.partner:hover { border-color: var(--ink); }
 .partner b { font-family: var(--display); font-weight: 700; font-size: 1.35rem; color: var(--ink); }
 .partner small { color: var(--soft); }
 .partner.empty { border-style: dashed; background: transparent; }
@@ -405,13 +409,13 @@ footer .mark { font-size: 1.2rem; }
     <div class="wrap">
       <div class="sec-head"><span class="eyebrow">Who we work with</span><h2 id="partners-h">Who we've curated experiences for</h2><p class="soft measure">From wellness studios and retreat leaders to businesses and private clients, we've designed and organized memorable experiences in Tuscany.</p></div>
       <div class="partners">
-        <a class="partner" href="https://pilatesbrunchclub.com" target="_blank" rel="noopener"><span class="eyebrow">Pilates &amp; wellness</span><b>Pilates Brunch Club</b><small>Santa Barbara, California</small></a>
-        <a class="partner" href="https://www.wisdomofthesages.com" target="_blank" rel="noopener"><span class="eyebrow">Retreat community</span><b>Wisdom of the Sages</b><small>Upstate New York</small></a>
-        <a class="partner" href="https://soarbungeefitness.com" target="_blank" rel="noopener"><span class="eyebrow">Fitness studio</span><b>SOAR Bungee Fitness</b><small>Savannah, Georgia</small></a>
-        <div class="partner"><span class="eyebrow">Private client</span><b>Bobby Jones Jr.</b><small>Professional basketball</small></div>
-        <a class="partner" href="https://www.yogapointe.com/yoga-therapy" target="_blank" rel="noopener"><span class="eyebrow">Yoga studio</span><b>Yoga Pointe</b><small>South Florida</small></a>
-        <div class="partner"><span class="eyebrow">Yoga studio</span><b>New Moon Yoga Studio</b><small>Nashville, Tennessee</small></div>
-        <a class="partner" href="https://www.jameyhoodmeditation.com/vvbc" target="_blank" rel="noopener"><span class="eyebrow">Meditation</span><b>Jamey Hood Meditation</b><small>Venice, California</small></a>
+        <a class="partner" href="https://pilatesbrunchclub.com" target="_blank" rel="noopener"><span class="client-mark" aria-hidden="true">PB</span><span class="eyebrow">Pilates &amp; wellness</span><b>Pilates Brunch Club</b><small>Santa Barbara, California</small></a>
+        <a class="partner" href="https://www.wisdomofthesages.com" target="_blank" rel="noopener"><span class="client-mark" aria-hidden="true">WS</span><span class="eyebrow">Retreat community</span><b>Wisdom of the Sages</b><small>Upstate New York</small></a>
+        <a class="partner" href="https://soarbungeefitness.com" target="_blank" rel="noopener"><span class="client-mark" aria-hidden="true">SF</span><span class="eyebrow">Fitness studio</span><b>SOAR Bungee Fitness</b><small>Savannah, Georgia</small></a>
+        <div class="partner"><span class="client-mark" aria-hidden="true">BJ</span><span class="eyebrow">Private client</span><b>Bobby Jones Jr.</b><small>Professional basketball</small></div>
+        <a class="partner" href="https://www.yogapointe.com/yoga-therapy" target="_blank" rel="noopener"><span class="client-mark" aria-hidden="true">YP</span><span class="eyebrow">Yoga studio</span><b>Yoga Pointe</b><small>South Florida</small></a>
+        <div class="partner"><span class="client-mark" aria-hidden="true">NM</span><span class="eyebrow">Yoga studio</span><b>New Moon Yoga Studio</b><small>Nashville, Tennessee</small></div>
+        <a class="partner" href="https://www.jameyhoodmeditation.com/vvbc" target="_blank" rel="noopener"><span class="client-mark" aria-hidden="true">JH</span><span class="eyebrow">Meditation</span><b>Jamey Hood Meditation</b><small>Venice, California</small></a>
       </div>
     </div>
   </section>
