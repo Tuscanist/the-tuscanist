@@ -270,7 +270,7 @@ footer .mark { font-size: 1.2rem; }
 }
 
 
-.about-stats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin-top:.5rem; padding-top:1.25rem; border-top:1px solid var(--line); }
+.about-stats { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin-top:.5rem; padding-top:1.25rem; border-top:1px solid var(--line); }
 .about-stats > div { display:flex; flex-direction:column; gap:.4rem; }
 .about-stats strong { font-family:var(--display); font-size:clamp(2rem,3.5vw,3rem); line-height:1; color:var(--ink); font-weight:700; }
 .about-stats span { color:var(--soft); font-size:.85rem; line-height:1.4; }
@@ -436,9 +436,8 @@ footer .mark { font-size: 1.2rem; }
           <p>Founded by Tom, a Belgian who has called Tuscany home since 2014, The Tuscanist specializes in organizing retreats, private holidays and curated group experiences.</p>
           <p>What began with a handful of groups has grown into an established travel operation. Today, we work with a trusted network of local professionals to welcome guests from around the world.</p>
           <div class="about-stats" aria-label="Our experience in numbers">
-            <div><strong class="count-up" data-target="495">495</strong><span>Estimated guests served</span></div>
-            <div><strong class="count-up" data-target="17">17</strong><span>Groups scheduled in 2026</span></div>
-            <div><strong class="count-up" data-target="17">17</strong><span>Groups confirmed for 2027</span></div>
+            <div><strong class="count-up" data-target="495">495</strong><span>Guests welcomed (approx.)</span></div>
+            <div><strong class="count-up" data-target="35" data-suffix="+">35+</strong><span>Businesses we’ve worked with</span></div>
           </div>
           
         </div>
@@ -550,7 +549,7 @@ document.getElementById('enquiry').addEventListener('submit', function (e) {
       const duration = 1250;
       function tick(now) {
         const t = Math.min((now - start) / duration, 1);
-        el.textContent = Math.round(target * (1 - Math.pow(1 - t, 3))).toLocaleString('en-US');
+        el.textContent = Math.round(target * (1 - Math.pow(1 - t, 3))).toLocaleString('en-US') + (el.dataset.suffix || '');
         if (t < 1) requestAnimationFrame(tick);
       }
       requestAnimationFrame(tick);
