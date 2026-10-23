@@ -269,6 +269,13 @@ footer .mark { font-size: 1.2rem; }
   footer .wrap { flex-direction: column; align-items: flex-start; gap: .5rem; }
 }
 
+
+.about-stats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin-top:.5rem; padding-top:1.25rem; border-top:1px solid var(--line); }
+.about-stats > div { display:flex; flex-direction:column; gap:.4rem; }
+.about-stats strong { font-family:var(--display); font-size:clamp(2rem,3.5vw,3rem); line-height:1; color:var(--ink); font-weight:700; }
+.about-stats span { color:var(--soft); font-size:.85rem; line-height:1.4; }
+.about .stats-note { color:var(--soft); font-size:.75rem; margin:0; }
+@media(max-width:520px){ .about-stats { gap:.6rem; } .about-stats strong { font-size:1.8rem; } .about-stats span { font-size:.75rem; } }
 </style>
 </head>
 <body>
@@ -424,12 +431,16 @@ footer .mark { font-size: 1.2rem; }
       <div class="about">
         <img class="ph" src="img/tom-about.jpg" alt="Tom Scharre in a narrow Florence street, smiling and pointing up at the buildings" loading="lazy">
         <div class="body">
-          <span class="eyebrow">About</span>
-          <h2 id="about-h" style="font-size:clamp(2rem,4.5vw,3rem);line-height:1.08">Started by Tom. Run by a team you can rely on.</h2>
-          <p>Before Tuscany, Tom spent years living as a monk in a temple. Italy taught him something simpler: what's real is good food, a glass of wine, beautiful views and time with people you love.</p>
-          <p>He started by organising yoga retreats for people he knew. They brought their families, then their friends. Today The Tuscanist is a small team of hosts, guides and local makers, working with villas like Casavecchia.</p>
-          <p>You tell us what you're dreaming of. We take care of the rest, and you can sleep on both ears.</p>
-          <p class="sig">Tom &amp; the team</p>
+          <span class="eyebrow">About The Tuscanist</span>
+          <h2 id="about-h" style="font-size:clamp(2rem,4.5vw,3rem);line-height:1.08">Local expertise. Proven experience.</h2>
+          <p>Founded by Tom, a Belgian who has called Tuscany home since 2014, The Tuscanist specializes in organizing retreats, private holidays and curated group experiences.</p>
+          <p>What began with a handful of groups has grown into an established travel operation. Today, we work with a trusted network of local professionals to welcome guests from around the world.</p>
+          <div class="about-stats" aria-label="Our experience in numbers">
+            <div><strong class="count-up" data-target="495">495</strong><span>Estimated guests served, 2023–2026</span></div>
+            <div><strong class="count-up" data-target="17">17</strong><span>Groups scheduled in 2026</span></div>
+            <div><strong class="count-up" data-target="17">17</strong><span>Groups confirmed for 2027</span></div>
+          </div>
+          <p class="stats-note">Guest estimate based on an average of 15 people per group.</p>
         </div>
       </div>
       <div class="team">
@@ -524,6 +535,29 @@ document.getElementById('enquiry').addEventListener('submit', function (e) {
   e.preventDefault();
   document.getElementById('thanks').hidden = false;
 });
+
+(function () {
+  const counters = document.querySelectorAll('.count-up');
+  if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  counters.forEach(el => el.textContent = '0');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      observer.unobserve(entry.target);
+      const el = entry.target;
+      const target = Number(el.dataset.target);
+      const start = performance.now();
+      const duration = 1250;
+      function tick(now) {
+        const t = Math.min((now - start) / duration, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - t, 3))).toLocaleString('en-US');
+        if (t < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  }, {threshold: .35});
+  counters.forEach(el => observer.observe(el));
+})();
 </script>
 
 </body>
