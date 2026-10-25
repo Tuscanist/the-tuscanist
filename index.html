@@ -241,9 +241,21 @@ textarea { min-height: 7rem; resize: vertical; }
 @media (max-width: 860px) { .start { grid-template-columns: 1fr; } }
 @media (max-width: 480px) { .two { grid-template-columns: 1fr; } }
 
-footer { background: var(--ink); color: #cfc6b8; border-top: 1px solid #2c2925; }
-footer .wrap { padding-block: 2.2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: .88rem; }
-footer .mark { font-size: 1.2rem; }
+footer { background: #1b2023; color: #d0d1d0; border-top: 1px solid #30373a; }
+footer .wrap { padding-block: 3.3rem 1.6rem; }
+.footer-grid { display: grid; grid-template-columns: 1.15fr 1.15fr 1.35fr 1.35fr; gap: 2.5rem; align-items: start; }
+.footer-grid h3 { color: #fff; font: 600 1.15rem var(--display); margin: 0 0 1.2rem; }
+.footer-grid p { margin: 0 0 .6rem; font-size: .85rem; line-height: 1.7; }
+.footer-grid a { color: #d0d1d0; text-decoration: none; }
+.footer-grid a:hover { color: #fff; text-decoration: underline; }
+.footer-brand .mark { color: #fff; font-size: clamp(1.6rem, 2.5vw, 2.2rem); }
+.footer-brand .mark span { color: #fff; }
+.footer-brand p { margin-top: 1.2rem; max-width: 13rem; }
+.footer-social { display: inline-flex; align-items: center; gap: .55rem; margin-top: .6rem; }
+.footer-social svg { width: 1.25rem; height: 1.25rem; fill: none; stroke: currentColor; stroke-width: 1.8; }
+.footer-bottom { border-top: 1px solid #384044; margin-top: 2.3rem; padding-top: 1.2rem; font-size: .77rem; color: #aab0b0; }
+@media (max-width: 950px) { .footer-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2rem; } }
+@media (max-width: 560px) { .footer-grid { grid-template-columns: 1fr; gap: 1.7rem; } footer .wrap { padding-block: 2.5rem 1.3rem; } }
 /* phone polish */
 @media (max-width: 600px) {
   header.top .wrap { padding-block: .7rem; }
@@ -499,11 +511,34 @@ footer .mark { font-size: 1.2rem; }
   </section>
 </main>
 
-<footer>
+<footer lang="it">
   <div class="wrap">
-    <span class="mark">The <span>Tuscanist</span><i class="leaf" aria-hidden="true"></i></span>
-    <span>With Tom Scharre · San Casciano in Val di Pesa, Tuscany</span>
-    <span>WhatsApp +39 342 778 6672 · Instagram · Google reviews</span>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="mark">Tuscanist<i class="leaf" aria-hidden="true"></i></span>
+        <p>Viaggi, ritiri ed esperienze su misura in Toscana.</p>
+      </div>
+      <div>
+        <h3>Contatti e collaborazioni</h3>
+        <p><a href="mailto:info@tuscanist.com">info@tuscanist.com</a></p>
+        <p><a href="https://wa.me/393427786672" target="_blank" rel="noopener">WhatsApp +39 342 778 6672</a></p>
+        <p>Via Terracini 14/2<br>50026 San Casciano in Val di Pesa (FI)</p>
+      </div>
+      <div>
+        <h3>Dati societari</h3>
+        <p>Tuscanist S.R.L.</p>
+        <p>Partita IVA e Codice Fiscale: 07537790482</p>
+        <p>REA: FI-710391</p>
+        <p>Codice SDI: KRRH6B9</p>
+      </div>
+      <div>
+        <h3>Assicurazioni e social</h3>
+        <p>R.C. professionale: Nobis Assicurazioni<br>Polizza n. 204511273</p>
+        <p>Garanzia insolvenza: Top Secure S.r.l.<br>Certificato n. 2026/0401/1/1156</p>
+        <a class="footer-social" href="https://www.instagram.com/tomintuscany/" target="_blank" rel="noopener" aria-label="Instagram di Tom in Tuscany"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r=".8" fill="currentColor" stroke="none"/></svg>Instagram</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Tuscanist S.R.L. · Tutti i diritti riservati</div>
   </div>
 </footer>
 
