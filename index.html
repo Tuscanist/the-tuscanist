@@ -213,10 +213,13 @@ section.alt { background: var(--band); }
 .rating { display: flex; align-items: baseline; gap: .8rem; flex-wrap: wrap; }
 .rating b { font-family: var(--display); font-size: 3rem; line-height: 1; color: var(--ink); }
 .reviews { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(16rem, 1fr); gap: 1rem; overflow-x: auto; padding-bottom: .6rem; scroll-snap-type: x mandatory; margin-top: 1.6rem; }
-.review { scroll-snap-align: start; background: var(--paper); border: 1px dashed var(--line); padding: 1.4rem; display: grid; gap: .8rem; align-content: start; }
+.review { scroll-snap-align: start; background: var(--paper); border: 1px solid var(--line); border-radius: 5px; padding: 1.4rem; display: grid; gap: .8rem; align-content: start; }
 .review .stars { color: var(--terra); letter-spacing: .15em; }
 .review p { color: var(--soft); font-style: italic; }
 .review small { font-family: var(--mono); font-size: .7rem; color: var(--soft); }
+
+.review-source { margin-top: 1rem; font-size: .9rem; color: var(--soft); }
+.review-source a { color: var(--terra); text-underline-offset: 3px; }
 
 /* faq */
 details { border-bottom: 1px solid var(--line); padding: 1.1rem 0; }
@@ -461,15 +464,21 @@ footer .wrap { padding-block: 3.3rem 1.6rem; }
     </div>
   </section>  <section class="band" id="reviews" aria-labelledby="reviews-h">
     <div class="wrap">
-      <div class="sec-head" style="margin-bottom:0"><span class="eyebrow">From our guests</span><h2 id="reviews-h">In their words</h2>
-        <div class="rating"><b>14</b><span class="soft">reviews on Google, and counting</span></div>
+      <div class="sec-head" style="margin-bottom:0">
+        <span class="eyebrow">From our guests</span>
+        <h2 id="reviews-h">In their words</h2>
+        <p class="soft">Real experiences, shared by our guests and retreat partners on Google.</p>
       </div>
-      <div class="reviews" aria-label="Review placeholders">
-        <div class="review"><span class="stars">★★★★★</span><p>Google review appears here.</p><small>Name · Google review</small></div>
-        <div class="review"><span class="stars">★★★★★</span><p>Google review appears here.</p><small>Name · Google review</small></div>
-        <div class="review"><span class="stars">★★★★★</span><p>Google review appears here.</p><small>Name · Google review</small></div>
-        <div class="review"><span class="stars">★★★★★</span><p>Google review appears here.</p><small>Name · Google review</small></div>
+      <div class="reviews" aria-label="Selected Google reviews">
+        <article class="review"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><p>“Working with Tom to plan, our Italy, yoga retreat was an absolute pleasure! From the beginning, he understood my vision and thoughtfully brought it to life. His professionalism, communication, and attention to detail made the entire process seamless.”</p><small>Yoga Pointe · Google review</small></article>
+        <article class="review"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><p>“Working with Tom to bring my retreat to life in Tuscany was one of the best decisions I’ve made as a studio owner. From our earliest conversations, he understood the vision I had and helped shape it into something even more beautiful than I could have imagined.”</p><small>Anne-Marie Kida · Google review</small></article>
+        <article class="review"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><p>“When solo traveling it is so important to feel safe and cared for. And this is exactly how I was made to feel. Every visit was full of knowledge and unique.”</p><small>Cindy Radmall · Google review</small></article>
+        <article class="review"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><p>“Beautiful property! Tom is a wonderful tour host, patient, and willing to go the extra mile. One leaves with the feeling of having spent a relaxing stay and adventure with family and friends.”</p><small>Kelly Burgess · Google review</small></article>
+        <article class="review"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><p>“Tom is an exceptional tour creator and follows through on every detail. I thoroughly enjoyed myself on the Casa Vecchio Retreat. The villa is lovely. There was plenty of different activities to take part in and time to just relax.”</p><small>Maryann Kowalsky · Google review</small></article>
+        <article class="review"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><p>“I had the most amazing experience during my travels. Tom was thorough, knowledgeable, personable and really made things fun. I was a solo traveler and felt safe and well taken care of the entire time. He truly helped make may trip so enjoyable. Memories for a lifetime!”</p><small>Michele Verdi · Google review</small></article>
+        <article class="review"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><p>“Tom was the key to making our Tuscany retreat an incredible experience! He made the entire week feel seamless and effortless. It truly was such a treat to not have to make a single decision all week and simply enjoy everything Tuscany and Florence had to offer!”</p><small>Sara Parisien · Google review</small></article>
       </div>
+      <p class="review-source">Selected excerpts from genuine Google reviews. <a href="https://maps.app.goo.gl/TTEsBC3krwrFg7R26" target="_blank" rel="noopener noreferrer">Read all reviews on Google</a></p>
     </div>
   </section>
 
